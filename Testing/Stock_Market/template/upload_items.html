@@ -1,0 +1,141 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Stock-Details
+{% endblock title %}
+{% block body %}
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-info alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{msg}}</strong>
+  </div>
+{% endfor %}
+{% endif %}
+<div class="container">
+    <!-- cotainer it is bootstrap class, all codes in a container and it uses for easy our responsive website -->
+    <h1>Upload Stock Items</h1>
+    <div class="form">
+        <form action="{% url 'upload_items' %}" class="submition" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- we are using this to remove the cyber attacking -->
+            <div class="d-grid gap-2 col-8 mx-auto">
+                <!-- bootstrap classes used for designing the html pages, gap column 2 , margin-x side auto used -->
+                <div class="details">
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" aria-describedby="emailHelp" name="title"
+                            placeholder="Enter Title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                            placeholder="Enter Description" required>
+                    </div>
+                    <!-- we can also use the below code for uploading the video from our folder -->
+                    <!-- <div class="mb-3">
+                            <label for="formFileSm" class="form-label">Add Video</label>
+                            <input type="file" class="form-control-file border" id="formFile" name="video"><br>
+                        </div> -->
+
+                    <div class="mb-3">
+                        <label class="form-label">Add Video URL</label>
+                        <input type="url" class="form-control" id="videourl" name="video_url" placeholder="Enter URL">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary mb-3">Upload</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    h1 {
+        margin: 5% 30%;
+        text-align: center;
+        border-bottom: 3px solid rgb(28, 91, 228);
+        padding: 2%;
+    }
+    .form-control{
+        background-color: transparent;
+        border: none !important;
+        border-bottom: 1px solid rgb(28, 91, 228) !important;
+        border-radius: 5px;
+
+    }
+    .btn.btn-outline-primary{
+        border: none !important;
+        border-bottom:3px solid rgb(28, 91, 228) !important;
+        border-top: 1px solid rgb(28, 91, 228) !important;
+        border-radius: 20px;
+    }
+    @media screen and (max-width: 1200px) {
+        h1 {
+            margin: 6% 26%;
+            text-align: center;
+            font-size: 2.3rem;
+            padding: 2%;
+        }
+        .form-label,.btn.btn-outline-primary,.form-control{
+            font-size: 0.9rem;
+        }
+     }
+    @media screen and (max-width: 990px) {
+        h1 {
+            margin: 8% 22%;
+            text-align: center;
+            font-size: 2.2rem;
+            padding: 2%;
+        }
+        .form-label,.btn.btn-outline-primary,.form-control{
+            font-size: 0.9rem;
+        }
+     }
+    @media screen and (max-width: 770px) {
+        h1 {
+            margin: 10% 19%;
+            text-align: center;
+            font-size: 2rem;
+            padding: 2%;
+        }
+        .form-label,.btn.btn-outline-primary,.form-control{
+            font-size: 0.8rem;
+        }
+    }
+    @media screen and (max-width: 525px) {
+        h1 {
+            margin: 7% 18%;
+            text-align: center;
+            font-size: 1.8rem;
+            padding: 2%;
+        }
+     }
+     @media screen and (max-width: 453px) {
+        h1 {
+            margin: 12% 14%;
+            text-align: center;
+            font-size: 1.6rem;
+            padding: 2%;
+        }
+        button.btn.btn-outline-primary{
+            font-size: 0.7rem;
+        }
+    }
+    @media screen and (max-width: 360px) {
+        h1 {
+            margin: 14% 15%;
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 3%;
+        }
+        button.btn.btn-outline-primary{
+            font-size: 0.7rem;
+        }
+    }
+</style>
+{% endblock body %}
+
+</html>

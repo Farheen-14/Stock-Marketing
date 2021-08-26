@@ -1,0 +1,171 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Stock-Details
+{% endblock title %}
+{% block body %}
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-info alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{msg}}</strong>
+</div>
+{% endfor %}
+{% endif %}
+<div class="container">
+    <h1>Stock-Items</h1>
+    <div class="display">
+        {% for i in message %}
+        <h3>Title : {{i.title}}</h3>
+        <p> Description : {{i.description}}</p>
+        <!-- <video width="420" height="315" src="{{i.video_url}}" controls> -->
+        <iframe src="{{i.video_url}}" frameborder="0" allowfullscreen></iframe><br>
+        <a href="{% url 'query' %}"><button type="button" class="btn btn-outline-primary">Form-Query</button></a>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+
+    h1 {
+        margin: 5% 35%;
+        font-size: 2.5rem;
+        border-bottom: 3px solid rgb(28, 91, 228);
+        padding: 1%;
+    }
+
+    .display {
+        margin: 5% 25%;
+    }
+    .btn.btn-outline-primary{
+        border: none !important;
+        border-bottom:2px solid rgb(28, 91, 228) !important;
+        border-top: 1px solid rgb(28, 91, 228) !important;
+        border-radius: 20px;
+        margin-bottom: 5%;
+        font-size: 0.8rem;
+    }
+
+    h3,
+    p {
+        text-align: left;
+        margin-left: 13%;
+    }
+
+    iframe {
+        height: 50vh;
+        width: 60vh;
+        margin-left: 0%;
+    }
+
+    @media screen and (max-width: 990px) {
+        h1 {
+            margin: 3% 22%;
+            font-size: 2.5rem;
+            border-bottom: 3px solid rgb(28, 91, 228);
+            padding: 1%;
+        }
+
+        .display {
+            margin: 3% 18%;
+        }
+
+        button.btn.btn-outline-primary {
+            margin-bottom: 5%;
+            border-radius: 20px;
+        }
+
+        h3,
+        p {
+            text-align: left;
+            margin-left: 10%;
+        }
+
+        iframe {
+            height: 50vh;
+            width: 70vh;
+            margin-left: 0%;
+        }
+    }
+
+    @media screen and (max-width: 770px) {
+        h1 {
+            margin: 3% 20%;
+            font-size: 2.1rem;
+            border-bottom: 3px solid rgb(28, 91, 228);
+            padding: 1%;
+        }
+
+        .display {
+            margin: 3% 12%;
+        }
+
+        button.btn.btn-outline-primary {
+            margin-bottom: 5%;
+            border-radius: 20px;
+            font-size: 0.7rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            text-align: left;
+            margin-left: 10%;
+        }
+
+        p {
+            font-size: 0.9rem;
+            text-align: left;
+            margin-left: 10%;
+        }
+
+        iframe {
+            height: 40vh;
+            width: 60vh;
+            margin-left: 0%;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        h1 {
+            margin: 3% 20%;
+            font-size: 1.6rem;
+            border-bottom: 3px solid rgb(28, 91, 228);
+            padding: 1%;
+        }
+
+        .display {
+            margin: 3% 8%;
+        }
+
+        button.btn.btn-outline-primary {
+            margin-bottom: 5%;
+            border-radius: 20px;
+            font-size: 0.6rem;
+        }
+
+        h3 {
+            font-size: 1rem;
+            text-align: left;
+            margin-left: 10%;
+        }
+
+        p {
+            font-size: 0.7rem;
+            text-align: left;
+            margin-left: 10%;
+        }
+
+        iframe {
+            height: 30vh;
+            width: 40vh;
+            margin-left: 0%;
+        }
+    }
+</style>
+{% endblock body %}
+
+</html>

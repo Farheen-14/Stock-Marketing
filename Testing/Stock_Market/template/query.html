@@ -1,0 +1,156 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Stock-Details
+{% endblock title %}
+{% block body %}
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{msg}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="container">
+        <h1>Enquiry-Form</h1>
+        <div class="form">
+            <form action="{% url 'query' %}" class="submition" method="POST">
+                {% csrf_token %}
+                <input type="text" class="form-control" id="enqtxt" name="name" placeholder="Your Name" required>
+                <input type="text" class="form-control" id="enqtxt" name="email" placeholder="Your Email" required>
+                <input type="text" class="form-control" id="enqtxt" name="contact" placeholder="Your Contact No."
+                    required>
+                <input type="text" class="form-control" id="enqtxt" name="message" placeholder="Your Message" required>
+                <button type="submit" class="btn btn-outline-primary mb-3">Submit</button>
+            </form>
+        </div>
+    </div>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 10%;
+            margin-left: 30%;
+            margin-right: 30%;
+            text-align: center;
+            border-bottom: 3px solid rgb(28, 91, 228);
+            padding: 2%;
+            margin-bottom: 3%;
+
+        }
+
+        .form {
+            margin-left: 28%;
+            margin-right: 28%;
+            text-align: left;
+        }
+
+        .form-control {
+            background-color: transparent;
+            border: none !important;
+            border-bottom: 1px solid rgb(28, 91, 228) !important;
+            border-radius: 5px;
+            margin-bottom: 1%;
+            color: white;
+        }
+
+        .btn.btn-outline-primary {
+            margin-top: 2%;
+            border: none !important;
+            border-bottom: 3px solid rgb(28, 91, 228) !important;
+            border-top: 1px solid rgb(28, 91, 228) !important;
+            border-radius: 20px;
+        }
+
+
+        @media screen and (max-width: 990px) {
+            h1 {
+                border-bottom: 3px solid rgb(28, 91, 228);
+                padding: 1%;
+                font-size: 2rem;
+                margin-left: 32%;
+                margin-right: 32%;
+                margin-top: 20%;
+            }
+
+            .form {
+                margin-left: 25%;
+                margin-right: 25%;
+                text-align: left;
+            }
+
+            .btn.btn-outline-primary {
+                border-radius: 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 785px) {
+            .form {
+                margin-left: 25%;
+                margin-right: 25%;
+                text-align: left;
+            }
+
+            h1 {
+                border-bottom: 3px solid rgb(28, 91, 228);
+                padding: 1%;
+                font-size: 1.8rem;
+                margin-left: 26%;
+                margin-right: 26%;
+                margin-top: 20%;
+            }
+
+            .btn.btn-outline-primary {
+                border-radius: 20px;
+                font-size: 0.8rem;
+            }
+
+            .form-control {
+                border-radius: 5px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+        h1 {
+                border-bottom: 3px solid rgb(28, 91, 228);
+                padding: 1%;
+                font-size: 1.4rem;
+                margin-left: 24%;
+                margin-right: 24%;
+                margin-top: 40%;
+            }
+
+            .btn.btn-outline-primary {
+                font-size: 0.7rem;
+            }
+
+            .form-control {
+                border-radius: 5px;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media screen and (max-width: 350px) {
+            .form {
+                margin-top: 5%;
+            }
+
+            h1 {
+                border-bottom: 3px solid rgb(28, 91, 228);
+                padding: 1%;
+                font-size: 1rem;
+                margin-left: 26%;
+                margin-right: 26%;
+                margin-top: 50%;
+            }
+        }
+    </style>
+
+{% endblock body %}
+</html>

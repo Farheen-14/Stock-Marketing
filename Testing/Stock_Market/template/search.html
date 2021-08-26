@@ -1,0 +1,137 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Stock-Details
+{% endblock title %}
+{% block body %}
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Warning!  {{msg}}</strong>
+  </div>
+{% endfor %}
+{% endif %}
+<div class="container">
+    <h1>Search-Items : </h1>        
+    <div class="searching">    
+        {% if data|length < 1 %} 
+        <code>No search results Your search query : <b>{{query}}</b> did not match any documents.</code> <br><br>
+        Please Try Again! Suggestions: <br><br>
+        
+            <p> ** Make sure that all words are spelled correctly.</p>
+            <p> ** Try more general keywords.</p>
+            <p> ** Try fewer keywords.</p>
+            <p> ** Try different keywords.</p>
+        {% endif %}
+        </div>
+
+        <div class="display">
+            {% for i in data %}
+            <h2>Title : {{i.title}}</h2>
+            <p> Description : {{i.description}}</p>
+            <!-- <video width="420" height="315" src="{{i.video_url}}" controls> -->
+            <iframe width="360" height="265" src="{{i.video_url}}" frameborder="0" allowfullscreen></iframe>
+            <a href="{% url 'query' %}"><button type="button" class="btn btn-outline-primary">Form-Query</button></a>
+            {% endfor %}
+        </div>
+</div>
+
+<style>
+    body {
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+
+    h1 {
+        margin: 5% 31%;
+
+        text-align: center;
+        border-bottom: 3px solid rgb(28, 91, 228);
+        padding: 2%;
+
+    }
+
+    .display {
+        margin-left: 32%;
+        margin-right: 32%;
+        text-align: left;
+    }
+
+    h2 {
+        margin-top: 10%;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .btn.btn-outline-primary {
+        border-radius: 20px;
+    }
+
+    b {
+        background-color: red;
+        color: white !important;
+    }
+    .searching{
+        text-align: left;
+
+    }
+
+    @media screen and (max-width: 990px) {
+        h1 {
+            margin: 5% 31%;
+            text-align: center;
+            font-size: 2rem;
+            border-bottom: 3px solid rgb(28, 91, 228);
+            padding: 2%;
+
+        }
+
+        .display {
+            margin-left: 30%;
+            margin-right: 25%;
+            text-align: left;
+        }
+
+        h2 {
+            margin-top: 10%;
+            font-size: 1.2rem;
+        }
+
+        .btn.btn-outline-primary {
+            border-radius: 20px;
+        }
+    }
+
+    @media screen and (max-width: 780px) {
+        h1 {
+            margin: 5% 31%;
+            text-align: center;
+            font-size: 1.7rem;
+            border-bottom: 3px solid rgb(28, 91, 228);
+            padding: 2%;
+
+        }
+
+        .display {
+            margin-left: 10%;
+            margin-right: 20%;
+            text-align: left;
+        }
+
+        h2 {
+            margin-top: 20%;
+            font-size: 1rem;
+        }
+
+        .btn.btn-outline-primary {
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+    }
+</style>
+{% endblock body %}
+
+</html>

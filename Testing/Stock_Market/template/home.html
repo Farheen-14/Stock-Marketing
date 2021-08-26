@@ -1,0 +1,195 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Home
+{% endblock title %}
+{% block body %}
+<div class="container">
+    <h1>Welcome to Stock-Market</h1>
+    <h4 class="lower">You Want Access Of Stock Market??? Please Login First!</h4>
+    <a href="{% url 'signup' %}"><button type="button" class="btn btn-outline-primary">Sign-Up</button></a>
+
+    <a href="{% url 'signin' %}"><button type="button" class="btn btn-outline-primary">Sign-In</button></a>
+</div>
+
+<!-- pop-up window -->
+
+<script>
+    setTimeout(function () {
+        $(".modal").show() //show the class and id after 3 min
+        $("#myModal").show()
+    }, 5000); // 3000 to load it after 3 seconds from page load  
+</script>
+
+<div class="pop-up">
+    <button type="button" class="btn-primary" data-toggle="modal" id="modid" data-target="#myModal" hidden>
+    </button>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    You are not login yet!!! Please Login to track the list of all the stock.
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'home' %}"> <button type="button" class="btn btn-danger" onclick="cross()"
+                            data-dismiss="modal ">Close</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: black;
+        text-align: center;
+    }
+
+    .container {
+        margin-top: 10%;
+    }
+
+    h1 {
+        color: white;
+        margin-bottom: 3%;
+        font-size: 2.5rem;
+    }
+
+    h4 {
+        color: rgb(28, 91, 228);
+        ;
+        border-bottom: 3px solid rgb(28, 91, 228);
+        padding: 1%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .btn.btn-outline-primary {
+        border-radius: 20px;
+    }
+
+    .btn.btn-danger {
+        border-radius: 20px;
+    }
+
+    @media screen and (max-width: 1050px) {
+        h4 {
+            color: rgb(28, 91, 228);
+            ;
+            border-bottom: 3px solid rgb(28, 91, 228);
+            padding: 1%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+    }
+
+    @media screen and (max-width: 870px) {
+        h1 {
+            font-size: 2.2rem;
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            padding: 2%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .container {
+            margin-top: 16%;
+        }
+
+        #myModal.modal,
+        .btn.btn-danger {
+            font-size: 1rem;
+        }
+    }
+
+    @media screen and (max-width: 780px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            padding: 2%;
+            margin-left: 20%;
+            margin-right: 20%
+        }
+
+        .btn.btn-outline-primary {
+            font-size: 0.8rem;
+            border-radius: 20px;
+        }
+
+        .container {
+            margin-top: 18%;
+        }
+
+        #myModal.modal,
+        .btn.btn-danger {
+            font-size: 0.8rem;
+        }
+
+        #myModal.modal {
+            padding: 0% 20%;
+        }
+    }
+
+    @media screen and (max-width: 550px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        h4 {
+            font-size: 1rem;
+            padding: 1%;
+            margin-left: 14%;
+            margin-right: 14%;
+        }
+
+        .btn.btn-outline-primary {
+            font-size: 0.6rem;
+            border-radius: 20px;
+        }
+
+        .container {
+            margin-top: 25%;
+        }
+
+        #myModal.modal,
+        .btn.btn-danger {
+            font-size: 0.8rem;
+            margin: 10% 0%;
+        }
+    }
+
+    @media screen and (max-width: 390px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 0.8rem;
+            padding: 3%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .btn.btn-outline-primary {
+            font-size: 0.5rem;
+            border-radius: 20px;
+        }
+
+        .container {
+            margin-top: 35%;
+        }
+
+        #myModal.modal,
+        .btn.btn-danger {
+            font-size: 0.7rem;
+        }
+    }
+</style>
+{% endblock body %}
+</html>
