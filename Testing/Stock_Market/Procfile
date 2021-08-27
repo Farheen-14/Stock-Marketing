@@ -1,0 +1,1 @@
+web: gunicorn Stock_Market.wsgi --log-file -
